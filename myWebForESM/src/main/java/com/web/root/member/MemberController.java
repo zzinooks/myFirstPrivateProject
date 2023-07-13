@@ -89,4 +89,10 @@ public class MemberController {
 		return "/index";
 	}
 	
+	// kakaoLoginTest 페이지로 이동
+	
+	@RequestMapping("kakaoLoginTest")
+	public String kakaoLoginTest() {
+		return "member/kakaoLoginTest";
+	}
 }

@@ -45,7 +45,21 @@ body {
 		document.memberLoginForm.submit();
 	}
 
+	function loginWithKakao() {
+	    Kakao.Auth.authorize({
+	      redirectUri: 'http://localhost:8080/root/member/login',
+	    });
+	}
 </script>
+
+<!-- 카카오 로그인 관련 -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
+  integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('dcac716d192c1c3d2508c1adc0dc6836'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
+
 <title>로그인 </title>
 </head>
 <body>
@@ -65,7 +79,20 @@ body {
 			</form>
 			<br>
 			<hr>
+				<!--카카오 로그인 버튼 -->
+				<a href ="${contextPath }/member/kakaoLoginTest">
+					<img alt="" src="${contextPath }/resources/image/kakao_login_medium_narrow.png">
+				</a>
+				
+			<hr>
 			<a href="${contextPath }/member/signInForm">회원가입</a>
+		</div>
+		
+		<div>
+			<form name="logOut" action="${contextPath }/member/logOut">
+				<input type="submit" value="로그아웃">
+			</form>
+		
 		</div>
 	</section>
 	
