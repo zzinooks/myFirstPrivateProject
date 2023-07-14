@@ -80,7 +80,7 @@ body {
 			<br>
 			<hr>
 				<!--카카오 로그인 버튼 -->
-				<a href ="${contextPath }/member/kakaoLoginTest">
+				<a href ="${contextPath }/member/toKakaoLoginTest">
 					<img alt="" src="${contextPath }/resources/image/kakao_login_medium_narrow.png">
 				</a>
 				

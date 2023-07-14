@@ -1,5 +1,7 @@
 package com.web.root.member.service;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +22,13 @@ public interface MemberService {
 	
 	// 회원정보 삭제
 	public int memberDelete(MemberDTO memberDTO);
+	
+	// 카카오 로그인 2번 - code를 보내 access_Token 얻기
+	public String getAccessToken(String authorize_code) throws Throwable;
+	
+	// 카카오 로그인 3번 - 받은 access_Token 을 보내 userInfo 얻기
+	public HashMap<String, Object> getUserInfo(String access_Token) throws Throwable;
+	
 	
 	
 }

@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<script src="${contextPath }/resources/js/formScript.js" />
-
 <!--  
 	# kakao developers 사용법
 	 - 위치 : 도구 > JS SDK 데모 > 카카오 로그인 > 사용자 정보 가져오기
@@ -43,7 +41,7 @@
 <head>
 <meta charset="UTF-8">
 <title>카카오 로그인 테스트 페이지</title>
-
+<!--  
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
   integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh" crossorigin="anonymous"></script>
   
@@ -66,5 +64,12 @@
 	</a>
 	<p id="token-result"></p>
 
+</body>
+-->
+</head>
+<body>
+	<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=dcac716d192c1c3d2508c1adc0dc6836&redirect_uri=http://localhost:8080/root/member/kakaoLoginTest">
+		카카오톡으로 간편 로그인
+	</a>
 </body>
 </html>
