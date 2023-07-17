@@ -94,19 +94,21 @@ public class MemberController {
 		return "/index";
 	}
 	
+	/*
 	@RequestMapping("toKakaoLoginTest")
 	public String toKakaoLoginTest() {
 		
 		return "/member/kakaoLoginTest";
 	}
+	*/
 	
 	// kakaoLoginTest 페이지로 이동
 	// 1번 카카오톡에 사용자 코드 받기(jsp의 a태그 href에 경로 있음)
 	// 2번 Service.getAccessToken에 code값 보내기. 잘 진행 되면 3번으로
 	// 3번 받은 access_Token을 Service.getuserInfo로 보냄. userInfo 받아옴.
 	//     userInfo에 nickname, email 정보가 담겨있음
-	@RequestMapping(value = "kakaoLoginTest", method = RequestMethod.GET)
-	public ModelAndView kakaoLoginTest(@RequestParam(value = "code", required = false) String code) throws Throwable {
+	@RequestMapping(value = "kakaoLogin", method = RequestMethod.GET)
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, Model model,HttpSession session) throws Throwable {
 		
 		// 1번
 		System.out.println("code: " + code);
@@ -117,11 +119,12 @@ public class MemberController {
 		// 위의 access_Token 받는 것을 확인한 후에 밑에 진행
 		
 		// 3번
-		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
+		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token, model, session);
 		System.out.println("nickname : " + userInfo.get("nickname"));
 		System.out.println("email : " + userInfo.get("email"));
+		System.out.println("id : " + userInfo.get("id"));
 		
-		return null;
+		return "/index";
 		// return에 페이지를 해도 되고, 여기서는 코드가 넘어오는지만 확인할 것이기 때문에 일단 return값이 없다.
 		
 	}

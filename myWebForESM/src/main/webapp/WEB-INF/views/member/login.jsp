@@ -40,6 +40,7 @@ body {
 	
 }
 </style>
+
 <script type="text/javascript">
 	function submit() {
 		document.memberLoginForm.submit();
@@ -63,13 +64,13 @@ body {
 <title>로그인 </title>
 </head>
 <body>
-	<%-- <c:import url="../default/header.jsp"/> --%>
 	<section>
 		
 		<div class="form-box">
 			<div id="logo">
 				<a href="${contextPath }/member/index"><img src="${contextPath }/resources/image/logo.gif"></a>
 			</div>
+			
 			<h2>로그인</h2>
 			<br>
 			<form name="memberLoginForm" action="${contextPath }/member/memberLogin" method="post">
@@ -80,7 +81,7 @@ body {
 			<br>
 			<hr>
 				<!--카카오 로그인 버튼 -->
-				<a href ="${contextPath }/member/toKakaoLoginTest">
+				<a href ="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=dcac716d192c1c3d2508c1adc0dc6836&redirect_uri=http://localhost:8080/root/member/kakaoLogin">
 					<img alt="" src="${contextPath }/resources/image/kakao_login_medium_narrow.png">
 				</a>
 				
@@ -95,7 +96,5 @@ body {
 		
 		</div>
 	</section>
-	
-	<%-- <c:import url="../default/footer.jsp"/> --%>
 </body>
 </html>

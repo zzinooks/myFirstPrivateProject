@@ -168,7 +168,7 @@ article {
 		<aside>
 			<h1></h1>
 			<ul>
-				<li><a href="#">ESM<br>(Experience Sampling Method)</a></li>
+				<li><a href="">ESM<br>(Experience Sampling Method)</a></li>
 				<li><a href="#">4 Question for Studying</a></li>
 				<li><a href="#">게시판</a></li>
 				<li><a href="#">menu - 4</a></li>

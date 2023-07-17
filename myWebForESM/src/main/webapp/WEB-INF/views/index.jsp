@@ -12,9 +12,23 @@
 <body>
 	<c:import url="default/header.jsp"></c:import>
 	<section>
-		<h1>${user.id } 님 환영합니다~</h1>
-		<p> 얏호 로그인 성공~!!</p>
+		<!-- 로그인 되었을 시 화면 -->
+		<c:if test="${user.id != null }">
+			<h1>${user.id } 님 환영합니다~</h1>
+			<p> 얏호 로그인 성공~!!</p>
+		</c:if>
 		
+		<!-- 비로그인 시 화면 -->
+		<c:if test="${user.id == null }">
+			<h1> ESM 사이트에 오신 것을 환영 합니다</h1>
+			<p>대다수의 서비스는 <b>로그인 후 사용</b>하실 수 있습니다</p>
+			<a href="${contextPath }/member/login">로그인</a>
+		</c:if>
+		
+		<br><br>
+		<h3> ESM 이란? </h3>
+		<p> Experience Sampling Method (경험 추출법) 이라고 하여 ...</p>
+		<!--  
 		<c:if test="${user.id != null }">
 			<a href="${contextPath }/member/logOut">로그아웃</a>
 			<a href="${contextPath }/member/memberModifyForm">회원정보 수정</a>
@@ -23,6 +37,7 @@
 		<c:if test="${user.id == null }">
 			<a href="${contextPath }/member/login">로그인</a>
 		</c:if>
+		-->
 	</section>
 	<c:import url="default/footer.jsp"></c:import>
 </body>

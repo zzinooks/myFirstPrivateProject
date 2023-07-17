@@ -11,8 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import javax.servlet.http.HttpSession;import org.apache.ibatis.builder.xml.XMLMapperEntityResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -134,7 +133,7 @@ public class MemberServiceImpl implements MemberService {
 			sb.append("grant_type=authorization_code");
 			
 			sb.append("&client_id=dcac716d192c1c3d2508c1adc0dc6836"); // REST_ API 키 본인이 발급받은 key 넣어주기
-			sb.append("&redirect_uri =http://localhost:8080/root/member/kakaoLoginTest"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
+			sb.append("&redirect_uri =http://localhost:8080/root/member/kakaoLogin"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
 			
 			sb.append("&code=" + authorize_code);
 			bw.write(sb.toString());
@@ -179,13 +178,13 @@ public class MemberServiceImpl implements MemberService {
 			e.printStackTrace();
 		}
 		return access_Token;
-	}
+	} // getAccessToken() end
 
 
 	// 카카오 로그인 3번 - 받은 access_Token 을 보내 userInfo 얻기
 	@SuppressWarnings("unchecked")
 	@Override
-	public HashMap<String, Object> getUserInfo(String access_Token) throws Throwable {
+	public HashMap<String, Object> getUserInfo(String access_Token, Model model,HttpSession session) throws Throwable {
 		// 요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap 타입으로 선언
 		// Q6. 위 설명을 이해 못하겠다.
 		HashMap<String, Object> userInfo = new HashMap<String, Object>();
@@ -215,21 +214,49 @@ public class MemberServiceImpl implements MemberService {
 			
 			try {
 				// jackson objectmapper 객체 생성
-				
+				ObjectMapper objectMapper = new ObjectMapper();
 				// JSON String -> Map
+				Map<String, Object> jsonMap = objectMapper.readValue(result, new TypeReference<Map<String, Object>>() {});
 				
-				// System.out.println(properties.get("nickname"));
-				// System.out.println(kakao_account.get("email"));
-				// 계속 써야함
+				System.out.println(jsonMap.get("properties"));
+				
+				Map<String, Object> properties = (Map<String, Object>) jsonMap.get("properties");
+				
+				Map<String, Object> kakao_account = (Map<String, Object>) jsonMap.get("kakao_account");
+	
+				System.out.println(properties.get("nickname"));
+				System.out.println(kakao_account.get("email"));
+				
+				String nickname = properties.get("nickname").toString();
+				String email = kakao_account.get("email").toString();
+				String id = String.valueOf(jsonMap.get("id")) ; // Long은 String.valueOf로 형변환
+				
+				// 확인용
+				userInfo.put("nickname", nickname);
+				userInfo.put("email", email);
+				userInfo.put("id", id);
+				
+				// 불러온 카카오 로그인 정보 담기
+				MemberDTO memberDTO = new MemberDTO();
+				memberDTO.setId(id);
+				memberDTO.setEmail(email);
+				memberDTO.setNickname(nickname);
+				
+				if(memberMapper.existaceOfUser(memberDTO) == 0) { // 처음 카카오 로그인 시
+					memberMapper.signInKakako(memberDTO); // 카카오 로그인 정보 DB에 저장
+				}
+				model.addAttribute("user", memberDTO);
+				session.setAttribute("user", memberDTO);
+				
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
-		return null;
-	}
+		return userInfo;
+	} // getUserInfo() end
 	
 	
 	

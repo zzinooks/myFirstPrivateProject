@@ -19,5 +19,8 @@ public interface MemberMapper {
 	// 회원 정보 삭제
 	public int memberDelete(MemberDTO memberDTO);
 	
+	// 카카오 로그인 정보 저장
+	public void signInKakako(MemberDTO memberDTO);
+	
 	
 }

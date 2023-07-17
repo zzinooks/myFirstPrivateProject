@@ -68,7 +68,7 @@
 -->
 </head>
 <body>
-	<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=dcac716d192c1c3d2508c1adc0dc6836&redirect_uri=http://localhost:8080/root/member/kakaoLoginTest">
+	<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=dcac716d192c1c3d2508c1adc0dc6836&redirect_uri=http://localhost:8080/root/member/kakaoLogin">
 		카카오톡으로 간편 로그인
 	</a>
 </body>

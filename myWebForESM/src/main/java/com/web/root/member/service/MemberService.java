@@ -27,7 +27,7 @@ public interface MemberService {
 	public String getAccessToken(String authorize_code) throws Throwable;
 	
 	// 카카오 로그인 3번 - 받은 access_Token 을 보내 userInfo 얻기
-	public HashMap<String, Object> getUserInfo(String access_Token) throws Throwable;
+	public HashMap<String, Object> getUserInfo(String access_Token, Model model,HttpSession session) throws Throwable;
 	
 	
 	
