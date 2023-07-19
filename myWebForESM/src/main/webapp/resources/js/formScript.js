@@ -48,3 +48,38 @@ function checkSignIn() {
 		document.signInForm.submit();
 	}
 }
+
+/* ESM 폼 확인 */
+function checkESMBoard() {
+	if(document.eSMForm.savedate.value == "") {
+		alert("날짜를 입력해주세요.");
+		document.eSMForm.savedate.focus();
+	}
+	else if (document.eSMForm.savetime.value == ""){
+		alert("시각를 입력해주세요");
+		document.eSMForm.savetime.focus();
+	}
+	else if ( document.eSMForm.place.value == ""){
+		alert("위치을 입력해주세요");
+		document.eSMForm.place.focus();
+	}
+	else if ( document.eSMForm.company.value == ""){
+		alert("동행를 입력해주세요");
+		document.eSMForm.company.focus();
+	}
+	else if ( document.eSMForm.emotion.value == ""){
+		alert("감정을 입력해주세요");
+		document.eSMForm.emotion.focus();
+	}
+	else if ( document.eSMForm.reason.value == ""){
+		alert("이유를 입력해주세요");
+		document.eSMForm.reason.focus();
+	}
+	else if ( document.eSMForm.content.value == ""){
+		alert("내용를 입력해주세요");
+		document.eSMForm.content.focus();
+	}
+	else {
+		document.eSMForm.submit();
+	}
+}
