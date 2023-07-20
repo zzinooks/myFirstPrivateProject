@@ -18,13 +18,14 @@
 		<result property="power" column="power"/>
 		<result property="savedate" column="savedate"/>
 		<result property="id" column="id"/>
+		<result property="exception" column="exception"/>
 	</resultMap>
 	
-	<!--  -->
+	<!-- ESM Board 삽입 -->
 	<insert id="insertESM">
 		INSERT INTO ESMBoard
 		values(board_seq.NEXTVAL, #{savetime}, #{place}, #{company}, #{emotion}, #{reason}, #{content}, #{happiness},
-			   #{concentration}, #{activeness}, #{power}, #{savedate}, #{id})
+			   #{concentration}, #{activeness}, #{power}, #{savedate}, #{id}, 'N')
 	</insert>
 
 	

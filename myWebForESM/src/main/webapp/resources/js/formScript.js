@@ -56,7 +56,7 @@ function checkESMBoard() {
 		document.eSMForm.savedate.focus();
 	}
 	else if (document.eSMForm.savetime.value == ""){
-		alert("시각를 입력해주세요");
+		alert("시각을 입력해주세요");
 		document.eSMForm.savetime.focus();
 	}
 	else if ( document.eSMForm.place.value == ""){
@@ -64,7 +64,7 @@ function checkESMBoard() {
 		document.eSMForm.place.focus();
 	}
 	else if ( document.eSMForm.company.value == ""){
-		alert("동행를 입력해주세요");
+		alert("동행을 입력해주세요");
 		document.eSMForm.company.focus();
 	}
 	else if ( document.eSMForm.emotion.value == ""){
@@ -76,7 +76,7 @@ function checkESMBoard() {
 		document.eSMForm.reason.focus();
 	}
 	else if ( document.eSMForm.content.value == ""){
-		alert("내용를 입력해주세요");
+		alert("내용을 입력해주세요");
 		document.eSMForm.content.focus();
 	}
 	else {

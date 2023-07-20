@@ -31,12 +31,23 @@ public class BoardController {
 	@PostMapping("insertESM")
 	public void insertESM(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		
 		// ESM 삽입 및 결과 메시지 출력
-		String message = bs.insertESM(request);;
+		String message = bs.insertESM(request); // ESM 삽입 메시지
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println(message);
 	}
+	
+	// ESM View Page : Table 페이지로 이동
+	@RequestMapping("eSMTableView")
+	public String eSMTableView() {
+		return "board/eSMTableView";
+	}
+	
+	// ESM View Page : Graph (막대 그래프)
+	
+	// ESM View Page : By Time (꺽은선 그래프)
+	
+	
 	
 }

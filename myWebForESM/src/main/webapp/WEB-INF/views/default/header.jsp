@@ -119,9 +119,9 @@ aside > ul > li > a:hover {
 
 /* section */
 section {
-	/* border: 1px solid blue; */
+	border: 1px solid blue;
 	float: right;
-	width: 996px;
+	width: 994px;
 	margin-left: 1px;
 }
 
@@ -147,8 +147,6 @@ article {
 			</li>
 			<li><a href="${contextPath }/member/signInForm">회원가입</a> | </li>
 			<li><a href="#">마이페이지</a> | </li>
-			<li><a href="#">주문배송 조회</a> | </li>
-			<li><a href="#">장바구니</a> | </li>
 			<li><a href="#">이용안내</a> | </li>
 			<li><a href="#">고객센터</a> </li>
 		</ul>
@@ -156,7 +154,7 @@ article {
 	<div class="clear"></div>
 	<div id="gnb">
 		<ul>
-			<li><a href="#">회사소개</a></li>
+			<li><a href="#">ESM 방법 소개</a></li>
 			<li><a href="#">Q / A</a></li>
 			<li><a href="#">공지사항</a></li>
 			<li><a href="#">고객센터</a></li>
@@ -169,7 +167,7 @@ article {
 			<h1></h1>
 			<ul>
 				<li><a href="${contextPath }/board/eSMForm">ESM<br>(Experience Sampling Method)</a></li>
-				<li><a href="#">4 Question for Studying</a></li>
+				<li><a href="${contextPath }/board/eSMTableView">나의 ESM 결과 확인하기</a></li>
 				<li><a href="#">게시판</a></li>
 				<li><a href="#">menu - 4</a></li>
 			</ul>

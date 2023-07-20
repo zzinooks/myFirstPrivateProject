@@ -17,7 +17,8 @@ concentration NUMBER(2),
 activeness NUMBER(2),
 power NUMBER(2),
 savedate DATE DEFAULT SYSDATE,
-id VARCHAR2(20) NOT NULL
+id VARCHAR2(20) NOT NULL,
+exception VARCHAR2(2) DEFAULT 'N',
 );
  */
 public class ESMBoardDTO {
@@ -36,6 +37,7 @@ public class ESMBoardDTO {
 	private int power;
 	private String savedate;
 	private String id;
+	private String exception;
 	
 	// 생성자
 	public ESMBoardDTO() {
@@ -43,7 +45,7 @@ public class ESMBoardDTO {
 	}
 	
 	public ESMBoardDTO(int write_no, String savetime, String place, String company, String emotion, String reason,
-			String content, int happiness, int concentration, int activeness, int power, String savedate, String id) {
+			String content, int happiness, int concentration, int activeness, int power, String savedate, String id, String exception) {
 		super();
 		this.write_no = write_no;
 		this.savetime = savetime;
@@ -58,6 +60,7 @@ public class ESMBoardDTO {
 		this.power = power;
 		this.savedate = savedate;
 		this.id = id;
+		this.exception = exception;
 	}
 
 	// getter와 setter
@@ -164,6 +167,15 @@ public class ESMBoardDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	public String getException() {
+		return exception;
+	}
+
+	public void setException(String exception) {
+		this.exception = exception;
+	}
+	
 	
 	
 	
