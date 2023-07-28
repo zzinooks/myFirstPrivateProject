@@ -27,6 +27,11 @@
 		values(board_seq.NEXTVAL, #{savetime}, #{place}, #{company}, #{emotion}, #{reason}, #{content}, #{happiness},
 			   #{concentration}, #{activeness}, #{power}, #{savedate}, #{id}, 'N')
 	</insert>
+	
+	<!-- ESM List 받아오기 - by id -->
+	<select id="getESMBoardById">
+		SELECT * FROM ESMBoard WHERE id = #{id}
+	</select>
 
 	
 </mapper>

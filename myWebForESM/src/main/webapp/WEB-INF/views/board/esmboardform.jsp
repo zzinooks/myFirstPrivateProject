@@ -3,9 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript">
+	var now = new Date();
+	var year = now.getFullYear();
+	var currentDate = year + "/" + now.getMonth() + "/" + now.getDate();
+	alert(currentDate);
+</script>
 <script src="${contextPath }/resources/js/formScript.js?v=<%=System.currentTimeMillis() %>" />
 <script src="${contextPath }/resources/js/esmboardForm.js?v=<%=System.currentTimeMillis() %>" />
-
 <!DOCTYPE html>
 <html>
 <head>

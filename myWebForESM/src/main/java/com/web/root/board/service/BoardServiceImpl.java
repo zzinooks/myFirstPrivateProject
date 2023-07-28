@@ -1,11 +1,16 @@
 package com.web.root.board.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.web.root.board.dto.ESMBoardDTO;
+import com.web.root.member.dto.MemberDTO;
 import com.web.root.mybatis.board.BoardMapper;
 
 @Service
@@ -58,6 +63,21 @@ public class BoardServiceImpl implements BoardService {
 		}
 		return getMessage(request, message, path);
 		
+	}
+
+	
+	// ESM 정보 불러오기 - by id
+	@Override
+	public void getESMBoardById(HttpSession session, Model model) {
+		
+		// (1) 정보 받기
+		MemberDTO user = (MemberDTO) session.getAttribute("user");
+		
+		// (2) 받은 정보(id)로 ESM List 받아오기
+		List<ESMBoardDTO> eSMBoardList = boardMapper.getESMBoardById(user.getId());
+		
+		// (3) 정보 담기
+		model.addAttribute("eSMBoardList", eSMBoardList);
 	}
 
 	
